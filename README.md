@@ -7,33 +7,34 @@
 - Создать интерфейс ученика для просмотра своих заданий и оценок
 
 ## Структура базы данных
-1. **admins**: ![alt-текст](https://github.com/MaksikLastik/Coursework/blob/main/image%20for%20README/База%20данных%20admins.png)
+1. **admins**: 
+![alt-текст](https://github.com/MaksikLastik/Coursework/blob/main/image%20for%20README/База%20данных%20admins.png)
 - id (Уникальный идентификатор админа): INT, AUTO_INCREMENT
 - name (Email админа): VARCHAR(50)
 - password (Пароль админа): VARCHAR(32)
-2. **students** (фотка):
+3. **students** (фотка):
 - student_id (Уникальный идентификатор ученика): INT, AUTO_INCREMENT
 - student_name (ФИО ученика): VARCHAR(50)
 - email (Email ученика): VARCHAR(50)
 - password (Пароль ученика): VARCHAR(32)
 - grade_name (Класс ученика): VARCHAR(5)
-3. **teachers** (фотка):
+4. **teachers** (фотка):
 - id (Уникальный идентификатор учителя): INT, AUTO_INCREMENT
 - teacher_name (ФИО учителя): VARCHAR(50)
 - password (Пароль учителя): VARCHAR(32)
 - email (Email учителя): VARCHAR(50)
-4. **subjects** (фотка):
+5. **subjects** (фотка):
 - subject_id (Уникальный идентификатор предмета): INT, AUTO_INCREMENT
 - teacher_id (Уникальный идентификатор ученика, к торому привязан этот предмет): INT, `teacher_id` связан с `id` в таблице `teachers`
 - name (Название предмета): VARCHAR(50)
 - grade_name (Класс, в котором преподаётся этот предмет): VARCHAR(5)
-5. **exercises** (фотка):
+6. **exercises** (фотка):
 - exercise_id (Уникальный идентификатор задания): INT, AUTO_INCREMENT
 - name (Название задания): VARCHAR(50)
 - text (Описание задания): TEXT
 - subject_id (Уникальный идентификатор предмета, по которому даётся это задание): INT, `subject_id` связан с `subject_id` в таблице `subjects`
 - teacher_id (Уникальный идентификатор учителя, который дал это задание): INT, `teacher_id` связан с `id` в таблице `teachers`
-6. **tasks_grades** (фотка):
+7. **tasks_grades** (фотка):
 - id (Уникальный идентификатор оценки): INT, AUTO_INCREMENT
 - exercise_id (Уникальный идентификатор задания, по которому выставляется оценка): INT, `exercise_id` связан с `exercise_id` в таблице `exercises`
 - student_id (Уникальный идентификатор ученика, которого оценивают по заданию): INT, `student_id` связан с `student_id` в таблице `students`
