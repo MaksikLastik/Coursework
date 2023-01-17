@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Учитель Дневничка</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
+        <script src="../const.js"></script>
+        <script src="teacher.js" defer></script>
+        <script src="../logout.js"></script>
+    </head>
+    <body class="bg-blue-500 dark:bg-gray-100 h-screen">
+        <div class="flex h-full bg-blue-500">
+            <!-- Левый край страницы: Список предметов, которые преподаёт учитель -->
+            <div class="w-1/3 bg-blue-500 dark:bg-gray-900 p-4" id="left-column">
+                <h1 class="text-2xl text-center text-gray-200">Здравствуйте, Учитель</h1>
+                <h2 class="text-2xl text-center font-bold mb-2 text-gray-100 dark:text-gray-800">Предметы</h2>
+                <div class="relative" id="subjects-cards">
+                    <!-- Сюда подгружаются все эти предметы -->
+                </div>
+                <div class="text-center mb-5">
+                    <a onclick="logout()" class="px-4 py-3 bg-red-500 text-white hover:bg-red-800 hover:text-white 
+                    rounded-full focus:outline-none focus:shadow-outline-gray active:bg-red-800 mt-4 mb-2">Выйти</a>
+                </div>
+                <div class="text-center">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0f3bad7bf0c2c69083408465716453677b7b8f3600dedf7927ab6a968fac160d&amp;width=400&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+            </div>
+            <!-- Середина старницы: Список заданий -->
+            <div class="w-1/3 bg-blue-500 dark:bg-gray-900 p-4" style="visibility: hidden;" id="middle-column">
+                <form class="flex flex-col" action="/api/teacher" method="GET">
+                    <label class="text-gray-100 dark:text-gray-800">Название задания</label>
+                    <input class="border border-gray-800 dark:border-gray-200 bg-gray-700 dark:bg-gray-800 text-gray-100 dark:text-gray-800" 
+                        type="text" name="name" />
+                    <label class="text-gray-100 dark:text-gray-800">Описание задания</label>
+                    <textarea class="border border-gray-800 dark:border-gray-200 bg-gray-700 dark:bg-gray-800 text-gray-100 dark:text-gray-800" 
+                        name="text"></textarea>
+                    <button class="bg-gray-600 dark:bg-gray-200 text-gray-100 dark:text-gray-800 mt-2 mb-6" 
+                        type="submit" id="add-exercise">Добавить задание</button>
+                </form>
+                <h2 class="text-2xl font-bold mb-2 text-gray-100 dark:text-gray-800">Задания</h2>
+                <div class="relative" id="exercises-cards">
+                    <!-- Сюда подгружаются все эти задания -->
+                </div>
+            </div>
+            <!-- Правый край страницы: Список всех учеников, оцениваемых по выбранному заданию -->
+            <div class="w-1/3 bg-blue-500 dark:bg-gray-900 p-4" style="visibility: hidden;" id="right-column">
+                <h2 class="text-2xl font-bold mb-2 text-gray-100 dark:text-gray-800">Ученики</h2>
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th class="bg-blue-800 text-left p-4 border border-gray-600 dark:border-gray-200 bg-gray-700 dark:bg-gray-800 text-gray-100 
+                                dark:text-gray-800">Ученик</th>
+                            <th class="bg-blue-800 text-center p-4 border border-gray-600 dark:border-gray-200 bg-gray-700 dark:bg-gray-800 text-gray-100 
+                                dark:text-gray-800">Оценка</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table">
+                        <!-- Сюда подгружается таблица учеников -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
