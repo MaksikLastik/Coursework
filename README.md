@@ -7,7 +7,7 @@
 - Создать интерфейс ученика для просмотра своих заданий и оценок
 
 ## Структура базы данных
-1. **admins**: [1](https://github.com/MaksikLastik/Coursework/blob/main/image%20for%20README/База%20данных%20admins.png)
+1. **admins**: [https://github.com/MaksikLastik/Coursework/blob/main/image%20for%20README/База%20данных%20admins.png](https://github.com/MaksikLastik/Coursework/blob/main/image%20for%20README/База%20данных%20admins.png)
 - id (Уникальный идентификатор админа): INT, AUTO_INCREMENT
 - name (Email админа): VARCHAR(50)
 - password (Пароль админа): VARCHAR(32)
